@@ -37,5 +37,32 @@ namespace Manager01
             caixa_form.ShowDialog();
             this.Show();
         }
+
+        private void tipoDeServiçoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            CadastroDescricaoValor_Form cadastroDescricaoValor_Form = new CadastroDescricaoValor_Form(TipoCadastro.tcServico);
+            cadastroDescricaoValor_Form.Show();
+
+        }
+
+        private void tipoDeAtendimentoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            CadastroDescricaoValor_Form cadastroDescricaoValor_Form = new CadastroDescricaoValor_Form(TipoCadastro.tcAtendimento);
+            cadastroDescricaoValor_Form.Show();
+        }
+
+        private void tipoDePagamentoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            CadastroDescricaoValor_Form cadastroDescricaoValor_Form = new CadastroDescricaoValor_Form(TipoCadastro.tcPagamento);
+            cadastroDescricaoValor_Form.Show();
+        }
+
+        private void btnCadastros_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                mnuCadastros.Show(btnCadastros, 0, btnCadastros.Height);
+            }
+        }
     }
 }

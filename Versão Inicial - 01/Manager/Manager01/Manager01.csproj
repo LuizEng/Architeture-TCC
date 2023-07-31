@@ -110,6 +110,12 @@
     <Compile Include="Atendimento_Form.Designer.cs">
       <DependentUpon>Atendimento_Form.cs</DependentUpon>
     </Compile>
+    <Compile Include="CadastroDescricaoValor_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CadastroDescricaoValor_Form.Designer.cs">
+      <DependentUpon>CadastroDescricaoValor_Form.cs</DependentUpon>
+    </Compile>
     <Compile Include="Caixa_Form.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -143,6 +149,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Atendimento_Form.resx">
       <DependentUpon>Atendimento_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CadastroDescricaoValor_Form.resx">
+      <DependentUpon>CadastroDescricaoValor_Form.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Caixa_Form.resx">
       <DependentUpon>Caixa_Form.cs</DependentUpon>

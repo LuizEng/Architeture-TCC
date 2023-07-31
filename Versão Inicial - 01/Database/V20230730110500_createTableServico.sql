@@ -1,5 +1,5 @@
 CREATE TABLE `servico` (
-  `id` int NOT NULL,
+  `id` int NOT NULL AUTO_INCREMENT,
   `descricao` varchar(32) NOT NULL,
   `valor` decimal(16,8) NOT NULL,
   PRIMARY KEY (`id`)

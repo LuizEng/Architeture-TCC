@@ -24,8 +24,14 @@ namespace Manager01
         public MySqlDataAdapter GetDataAdapter(string command) 
         {
             MySqlCommand mySqlCommand = new MySqlCommand(command, connection.GetSqlConnection());
-            MySqlDataAdapter retorno = new MySqlDataAdapter(mySqlCommand);
+            MySqlDataAdapter retorno = new MySqlDataAdapter(mySqlCommand);            
             return retorno;
+        }
+
+        public void ExecSql(string command)
+        {
+            MySqlCommand mySqlCommand = new MySqlCommand(command, connection.GetSqlConnection());
+            mySqlCommand.ExecuteNonQuery();
         }
 
         public void Dispose()
