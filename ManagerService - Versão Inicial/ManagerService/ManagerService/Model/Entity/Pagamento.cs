@@ -19,16 +19,12 @@ namespace ManagerService.Model.Entity
     }
     public class Pagamento
     {
-        [Key]
         public int Id { get; set; }
 
-        [Required]
         public Agenda Agenda { get; set; }
 
-        [Required]
         public TipoPagamento TipoPagamento { get; set;}
 
-        [Required]
         public float ValorPago { get; set; }
     }
 }

@@ -102,8 +102,16 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controller\AgendaController.cs" />
+    <Compile Include="Controller\ClienteController.cs" />
     <Compile Include="Controller\LoginController.cs" />
+    <Compile Include="Controller\PagamentoController.cs" />
+    <Compile Include="Controller\ServicoController.cs" />
+    <Compile Include="Converter\AgendaConverter.cs" />
+    <Compile Include="Converter\ClienteConverter.cs" />
     <Compile Include="Converter\LoginConverter.cs" />
+    <Compile Include="Converter\PagamentoConverter.cs" />
+    <Compile Include="Converter\ServicoConverter.cs" />
     <Compile Include="Model\Entity\Agenda.cs" />
     <Compile Include="Model\Entity\Pagamento.cs" />
     <Compile Include="Model\Entity\Cliente.cs" />
@@ -112,9 +120,17 @@
     <Compile Include="Component\MySqlConnectionManager.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repository\AgendaRepository.cs" />
+    <Compile Include="Repository\ClienteRepository.cs" />
     <Compile Include="Repository\LoginRepository.cs" />
+    <Compile Include="Repository\PagamentoRepository.cs" />
+    <Compile Include="Repository\ServicoRepository.cs" />
+    <Compile Include="Service\AgendaService.cs" />
+    <Compile Include="Service\ClienteService.cs" />
     <Compile Include="Service\LoginService.cs" />
     <Compile Include="Component\SqlController.cs" />
+    <Compile Include="Service\PagamentoService.cs" />
+    <Compile Include="Service\ServicoService.cs" />
     <Compile Include="View\Login_Form.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -147,8 +163,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Model\Context\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
