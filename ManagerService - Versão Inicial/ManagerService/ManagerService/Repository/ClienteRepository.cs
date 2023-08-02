@@ -11,15 +11,14 @@ using System.Threading.Tasks;
 
 namespace ManagerService.Repository
 {
-    internal class ClienteRepository
+    internal class ClienteRepository : SqlController
     {
         private ClienteConverter _converter;
 
         public ClienteRepository() => _converter = new ClienteConverter();
         public List<ClienteGetAllDto> GetAllClientes()
-        {
-            SqlController sqlController = new SqlController();
-            MySqlDataReader sqlDataReader = sqlController.GetDataReader("select * from cliente");
+        {            
+            MySqlDataReader sqlDataReader = GetDataReader("select * from cliente");
 
             var list = new List<ClienteGetAllDto>();
 
@@ -31,13 +30,7 @@ namespace ManagerService.Repository
             return list;
         }
 
-        public Cliente GetById(int id)
-        {
-            SqlController sqlController = new SqlController();
-            MySqlDataReader sqlDataReader = sqlController.GetDataReader("select * from cliente where id = "+ id.ToString());
-
-            return _converter.SqlToCliente(sqlDataReader);
-        }
+        public Cliente GetById(int id) => _converter.SqlToCliente(GetDataReader("select * from cliente where id = " + id.ToString()));
 
     }
 }

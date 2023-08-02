@@ -10,14 +10,13 @@ using System.Threading.Tasks;
 
 namespace ManagerService.Repository
 {
-    public class ServicoRepository
+    public class ServicoRepository: SqlController
     {
         private ServicoConverter _converter;
         public ServicoRepository() => _converter = new ServicoConverter();
         public List<Servico> GetAllServicos()
-        {
-            SqlController sqlController = new SqlController();
-            MySqlDataReader sqlDataReader = sqlController.GetDataReader("select * from servico");
+        {            
+            MySqlDataReader sqlDataReader = GetDataReader("select * from servico");
 
             var list = new List<Servico>();
 
@@ -29,18 +28,11 @@ namespace ManagerService.Repository
             return list;
         }
 
-        public Servico GetById(int id)
-        {
-            SqlController sqlController = new SqlController();
-            MySqlDataReader sqlDataReader = sqlController.GetDataReader("select * from servico where id = " + id.ToString());
-
-            return _converter.SqlToServico(sqlDataReader);
-        }
+        public Servico GetById(int id) => _converter.SqlToServico(GetDataReader("select * from servico where id = " + id.ToString()));
 
         public List<Servico> GetServicosAgenda(int idAgenda)
-        {
-            SqlController sqlController = new SqlController();
-            MySqlDataReader sqlDataReader = sqlController.GetDataReader("select * from servico inner join agenda_servico on servico.id = fk_servico where fk_agenda = " + idAgenda.ToString());
+        {            
+            MySqlDataReader sqlDataReader = GetDataReader("select * from servico inner join agenda_servico on servico.id = fk_servico where fk_agenda = " + idAgenda.ToString());
 
             var list = new List<Servico>();            
             while (sqlDataReader.Read())

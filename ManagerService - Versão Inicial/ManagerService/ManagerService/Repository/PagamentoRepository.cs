@@ -10,17 +10,11 @@ using System.Threading.Tasks;
 
 namespace ManagerService.Repository
 {
-    public class PagamentoRepository
+    public class PagamentoRepository: SqlController
     {
         private PagamentoConverter _converter;
 
         public PagamentoRepository() => _converter = new PagamentoConverter();
-        public Pagamento GetById(int id)
-        {
-            SqlController sqlController = new SqlController();
-            MySqlDataReader reader = sqlController.GetDataReader("select * from pagamento");
-
-            return _converter.SqlToPagamento(reader);
-        }
+        public Pagamento GetById(int id) => _converter.SqlToPagamento(GetDataReader("select * from pagamento"));
     }
 }
