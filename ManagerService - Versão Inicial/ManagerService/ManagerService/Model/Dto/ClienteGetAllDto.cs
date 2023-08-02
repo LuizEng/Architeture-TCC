@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace ManagerService.Model.Dto
 {
     public class ClienteGetAllDto
-    {
+    {        
         public String Nome { get; set; }
 
         public String Telefone { get; set; }

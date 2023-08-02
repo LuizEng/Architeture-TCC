@@ -31,6 +31,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel10 = new System.Windows.Forms.Panel();
+            this.grdClientes = new System.Windows.Forms.DataGridView();
             this.panel11 = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
@@ -52,10 +53,10 @@
             this.agendaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.agendarServiçoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.realizarPagamentoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.grdClientes = new System.Windows.Forms.DataGridView();
             this.panel1.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel10.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.grdClientes)).BeginInit();
             this.panel11.SuspendLayout();
             this.panel5.SuspendLayout();
             this.panel9.SuspendLayout();
@@ -65,7 +66,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.grdDadosSemana)).BeginInit();
             this.panel6.SuspendLayout();
             this.mnuHome.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.grdClientes)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -100,6 +100,19 @@
             this.panel10.Name = "panel10";
             this.panel10.Size = new System.Drawing.Size(566, 581);
             this.panel10.TabIndex = 1;
+            // 
+            // grdClientes
+            // 
+            this.grdClientes.AllowUserToAddRows = false;
+            this.grdClientes.AllowUserToDeleteRows = false;
+            this.grdClientes.AllowUserToOrderColumns = true;
+            this.grdClientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.grdClientes.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.grdClientes.Location = new System.Drawing.Point(0, 14);
+            this.grdClientes.Name = "grdClientes";
+            this.grdClientes.ReadOnly = true;
+            this.grdClientes.Size = new System.Drawing.Size(566, 567);
+            this.grdClientes.TabIndex = 2;
             // 
             // panel11
             // 
@@ -251,13 +264,14 @@
             // clientesToolStripMenuItem
             // 
             this.clientesToolStripMenuItem.Name = "clientesToolStripMenuItem";
-            this.clientesToolStripMenuItem.Size = new System.Drawing.Size(117, 22);
+            this.clientesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.clientesToolStripMenuItem.Text = "Clientes";
+            this.clientesToolStripMenuItem.Click += new System.EventHandler(this.clientesToolStripMenuItem_Click);
             // 
             // serviçosToolStripMenuItem
             // 
             this.serviçosToolStripMenuItem.Name = "serviçosToolStripMenuItem";
-            this.serviçosToolStripMenuItem.Size = new System.Drawing.Size(117, 22);
+            this.serviçosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.serviçosToolStripMenuItem.Text = "Serviços";
             // 
             // relatóriosToolStripMenuItem
@@ -287,19 +301,6 @@
             this.realizarPagamentoToolStripMenuItem.Size = new System.Drawing.Size(178, 22);
             this.realizarPagamentoToolStripMenuItem.Text = "Realizar Pagamento";
             // 
-            // grdClientes
-            // 
-            this.grdClientes.AllowUserToAddRows = false;
-            this.grdClientes.AllowUserToDeleteRows = false;
-            this.grdClientes.AllowUserToOrderColumns = true;
-            this.grdClientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.grdClientes.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.grdClientes.Location = new System.Drawing.Point(0, 14);
-            this.grdClientes.Name = "grdClientes";
-            this.grdClientes.ReadOnly = true;
-            this.grdClientes.Size = new System.Drawing.Size(566, 567);
-            this.grdClientes.TabIndex = 2;
-            // 
             // Home_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -315,6 +316,7 @@
             this.panel1.PerformLayout();
             this.panel4.ResumeLayout(false);
             this.panel10.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.grdClientes)).EndInit();
             this.panel11.ResumeLayout(false);
             this.panel11.PerformLayout();
             this.panel5.ResumeLayout(false);
@@ -328,7 +330,6 @@
             this.panel6.PerformLayout();
             this.mnuHome.ResumeLayout(false);
             this.mnuHome.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.grdClientes)).EndInit();
             this.ResumeLayout(false);
 
         }
