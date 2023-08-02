@@ -1,5 +1,6 @@
 ﻿using Manager01;
 using ManagerService.Converter;
+using ManagerService.Model.Dto;
 using ManagerService.Model.Entity;
 using MySql.Data.MySqlClient;
 using System;
@@ -15,16 +16,16 @@ namespace ManagerService.Repository
         private ClienteConverter _converter;
 
         public ClienteRepository() => _converter = new ClienteConverter();
-        public List<Cliente> GetAllClientes()
+        public List<ClienteGetAllDto> GetAllClientes()
         {
             SqlController sqlController = new SqlController();
             MySqlDataReader sqlDataReader = sqlController.GetDataReader("select * from cliente");
 
-            var list = new List<Cliente>();
+            var list = new List<ClienteGetAllDto>();
 
             while (sqlDataReader.Read())
             {
-                list.Add(_converter.SqlToCliente(sqlDataReader));
+                list.Add(_converter.SqlToClienteGetAllDto(sqlDataReader));
             }
 
             return list;

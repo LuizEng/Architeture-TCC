@@ -1,4 +1,5 @@
-﻿using ManagerService.Model.Entity;
+﻿using ManagerService.Model.Dto;
+using ManagerService.Model.Entity;
 using ManagerService.Repository;
 using System;
 using System.Collections.Generic;
@@ -15,5 +16,9 @@ namespace ManagerService.Service
         public AgendaService() => _repository = new AgendaRepository();
 
         public Agenda GetAgenda(int id) => _repository.GetById(id);
+
+        public List<AgendaGetAllDto> GetAgendaSemana(DateTime dataInicio, DateTime dataFim) => _repository.GetBetweenDate(dataInicio, dataFim);
+
+        public List<AgendaGetAllDto> GetAgendaHoje(DateTime dataAtual) => _repository.GetBetweenDate(dataAtual, dataAtual);
     }
 }
