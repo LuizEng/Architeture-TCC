@@ -112,6 +112,8 @@
     <Compile Include="Converter\LoginConverter.cs" />
     <Compile Include="Converter\PagamentoConverter.cs" />
     <Compile Include="Converter\ServicoConverter.cs" />
+    <Compile Include="Model\Dto\AgendaGetAllDto.cs" />
+    <Compile Include="Model\Dto\ClienteGetAllDto.cs" />
     <Compile Include="Model\Entity\Agenda.cs" />
     <Compile Include="Model\Entity\Pagamento.cs" />
     <Compile Include="Model\Entity\Cliente.cs" />
@@ -131,6 +133,12 @@
     <Compile Include="Component\SqlController.cs" />
     <Compile Include="Service\PagamentoService.cs" />
     <Compile Include="Service\ServicoService.cs" />
+    <Compile Include="View\Home_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Home_Form.Designer.cs">
+      <DependentUpon>Home_Form.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\Login_Form.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -146,6 +154,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="View\Home_Form.resx">
+      <DependentUpon>Home_Form.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\Login_Form.resx">
       <DependentUpon>Login_Form.cs</DependentUpon>
     </EmbeddedResource>

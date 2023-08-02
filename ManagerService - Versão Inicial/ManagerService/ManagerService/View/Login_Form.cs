@@ -24,11 +24,21 @@ namespace ManagerService.View
             LoginController loginController = new LoginController();
             if (loginController.RealizarLogin(txtLogin.Text, txtSenha.Text))
             {
-
+                this.Hide();
+                Home_Form home_Form = new Home_Form();
+                home_Form.Show();                
             }
             else
             {
                 MessageBox.Show("Usuário ou senha incorretos!");
+            }
+        }
+
+        private void txtSenha_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                btnLogin_Click(sender, e);
             }
         }
     }

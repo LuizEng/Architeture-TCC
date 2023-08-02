@@ -1,4 +1,5 @@
-﻿using ManagerService.Model.Entity;
+﻿using ManagerService.Model.Dto;
+using ManagerService.Model.Entity;
 using ManagerService.Service;
 using System;
 using System.Collections.Generic;
@@ -15,5 +16,22 @@ namespace ManagerService.Controller
         public AgendaController() => _service = new AgendaService();
 
         public Agenda GetAgenda(int id) => _service.GetAgenda(id);
+        
+        public List<AgendaGetAllDto> GetAgendaSemana()
+        {
+            DateTime dataAtual = DateTime.Now;
+            
+            DateTime inicioSemana = dataAtual.AddDays(-(int)dataAtual.DayOfWeek);
+            DateTime fimSemana = inicioSemana.AddDays(6);
+
+            return _service.GetAgendaSemana(inicioSemana, fimSemana);
+        }
+
+        public List<AgendaGetAllDto> GetAgendaHoje()
+        {
+            DateTime dataAtual = DateTime.Now;
+
+            return _service.GetAgendaHoje(dataAtual);
+        }
     }
 }

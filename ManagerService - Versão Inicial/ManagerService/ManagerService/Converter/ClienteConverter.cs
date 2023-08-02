@@ -1,4 +1,5 @@
-﻿using ManagerService.Model.Entity;
+﻿using ManagerService.Model.Dto;
+using ManagerService.Model.Entity;
 using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
@@ -23,6 +24,20 @@ namespace ManagerService.Converter
                 
             }
 
+            return null;
+        }
+
+        public ClienteGetAllDto SqlToClienteGetAllDto(MySqlDataReader mySqlDataReader)
+        {
+            if (mySqlDataReader.Read())
+            {
+                return new ClienteGetAllDto()
+                {                    
+                    Nome = mySqlDataReader.GetString(mySqlDataReader.GetOrdinal("nome")),
+                    Telefone = mySqlDataReader.GetString(mySqlDataReader.GetOrdinal("telefone")),                    
+                };
+
+            }
             return null;
         }
     }

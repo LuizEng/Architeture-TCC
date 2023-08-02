@@ -1,4 +1,5 @@
-﻿using ManagerService.Model.Entity;
+﻿using ManagerService.Model.Dto;
+using ManagerService.Model.Entity;
 using ManagerService.Repository;
 using System;
 using System.Collections.Generic;
@@ -14,7 +15,7 @@ namespace ManagerService.Service
 
         public ClienteService() => _clienteRepository = new ClienteRepository();
 
-        public List<Cliente> GetClientes() => _clienteRepository.GetAllClientes();
+        public List<ClienteGetAllDto> GetClientes() => _clienteRepository.GetAllClientes();
 
         public Cliente GetById(int id) => _clienteRepository.GetById(id);
     }
