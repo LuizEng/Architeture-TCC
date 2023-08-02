@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace ManagerService.Repository
 {
-    public class AgendaRepository
+    public class AgendaRepository: SqlController
     {
         private AgendaConverter _converter;
 
@@ -20,18 +20,11 @@ namespace ManagerService.Repository
             _converter = new AgendaConverter();            
         }
 
-        public Agenda GetById(int id)
-        {
-            SqlController  sqlController = new SqlController();
-            MySqlDataReader reader = sqlController.GetDataReader("select * from agenda");
-
-            return _converter.SqlToAgenda(reader);
-        }
+        public Agenda GetById(int id) => _converter.SqlToAgenda(GetDataReader("select * from agenda"));
 
         public List<AgendaGetAllDto> GetBetweenDate(DateTime dataInicio, DateTime datafim)
         {
-            SqlController sqlController = new SqlController();
-            MySqlDataReader reader = sqlController.GetDataReader("select * from agenda where data between " + dataInicio.ToShortDateString() + " and " + datafim.ToShortDateString());
+            MySqlDataReader reader = GetDataReader("select * from agenda where data between " + dataInicio.ToShortDateString() + " and " + datafim.ToShortDateString());
 
             var list = new List<AgendaGetAllDto>();
             while (reader.Read())

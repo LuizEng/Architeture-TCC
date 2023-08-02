@@ -10,12 +10,11 @@ using System.Threading.Tasks;
 
 namespace ManagerService.Repository
 {
-    internal class LoginRepository
+    internal class LoginRepository: SqlController
     {        
         public Usuario GetLogin(string usuario, string senha)
         {
-            SqlController sqlController = new SqlController();
-            MySqlDataReader reader = sqlController.GetDataReader("select * from usuario where nome ='"+ usuario + "' and token = '"+ senha + "'");
+            MySqlDataReader reader = GetDataReader("select * from usuario where nome ='"+ usuario + "' and token = '"+ senha + "'");
             if (reader != null)
             {
                 LoginConverter loginConverter = new LoginConverter();

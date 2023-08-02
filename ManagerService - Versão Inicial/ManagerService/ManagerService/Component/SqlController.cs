@@ -7,36 +7,31 @@ using System.Threading.Tasks;
 
 namespace Manager01
 {
-    internal class SqlController
-    {
-        private MySQLConnectionManager connection;
-        public SqlController()
+    public class SqlController
+    {        
+        private MySqlConnection GetConnection()
         {
-            this.connection = new MySQLConnectionManager();
+            MySQLConnectionManager connection = new MySQLConnectionManager();
+            return connection.GetSqlConnection();
         }
         public MySqlDataReader GetDataReader(string command)
         {
-            MySqlCommand mySqlCommand = new MySqlCommand(command, connection.GetSqlConnection());
+            MySqlCommand mySqlCommand = new MySqlCommand(command, GetConnection());
             MySqlDataReader retorno = mySqlCommand.ExecuteReader();
             return retorno;
 
         }
         public MySqlDataAdapter GetDataAdapter(string command) 
         {
-            MySqlCommand mySqlCommand = new MySqlCommand(command, connection.GetSqlConnection());
+            MySqlCommand mySqlCommand = new MySqlCommand(command, GetConnection());
             MySqlDataAdapter retorno = new MySqlDataAdapter(mySqlCommand);            
             return retorno;
         }
 
         public void ExecSql(string command)
         {
-            MySqlCommand mySqlCommand = new MySqlCommand(command, connection.GetSqlConnection());
+            MySqlCommand mySqlCommand = new MySqlCommand(command, GetConnection());
             mySqlCommand.ExecuteNonQuery();
-        }
-
-        public void Dispose()
-        {
-            connection.dispose();
         }
     }
 }
