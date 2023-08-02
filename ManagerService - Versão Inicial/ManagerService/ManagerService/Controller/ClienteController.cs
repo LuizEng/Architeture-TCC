@@ -20,5 +20,13 @@ namespace ManagerService.Controller
         public Cliente RetornarClientePorId(int id) => _clienteService.GetById(id);
 
         public bool IsClienteExiste(int id) => _clienteService.GetById(id) != null;
+
+        public List<ClienteDto> RetornarTodosClienteDto() => _clienteService.GetClientesDto();
+
+        public void InserirCliente(string nome, string telefone, string email) => _clienteService.InserirCliente(new ClientePostDto() { Nome = nome, Telefone = telefone, Email = email });
+
+        public void AtualizarCliente(int id, string nome, string telefone, string email) => _clienteService.AtualizarCliente(new ClienteDto() { Id = id, Nome = nome, Telefone = telefone, Email = email });
+
+        public void RemoverCliente(int id) => _clienteService.RemoverCliente(id);
     }
 }

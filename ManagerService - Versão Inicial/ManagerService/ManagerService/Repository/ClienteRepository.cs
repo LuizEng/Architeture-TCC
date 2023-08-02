@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace ManagerService.Repository
 {
-    internal class ClienteRepository : SqlController
+    internal class ClienteRepository: SqlController
     {
         private ClienteConverter _converter;
 
@@ -31,6 +31,26 @@ namespace ManagerService.Repository
         }
 
         public Cliente GetById(int id) => _converter.SqlToCliente(GetDataReader("select * from cliente where id = " + id.ToString()));
+
+        public List<ClienteDto> GetAllClienteDto()
+        {
+            MySqlDataReader sqlDataReader = GetDataReader("select * from cliente");
+
+            var list = new List<ClienteDto>();
+
+            while (sqlDataReader.Read())
+            {
+                list.Add(_converter.SqlToClienteDto(sqlDataReader));
+            }
+
+            return list;
+        }
+
+        public void Insert(ClientePostDto dto) => this.Insert<ClientePostDto>(dto, "cliente");
+
+        public void Delete(int id) => this.Delete("cliente", "id", id);
+       
+        public void Update(ClienteDto dto) => this.Update<ClienteDto>(dto, "cliente", "Id");
 
     }
 }

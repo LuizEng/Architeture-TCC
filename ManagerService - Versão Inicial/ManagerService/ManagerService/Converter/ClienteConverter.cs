@@ -12,33 +12,36 @@ namespace ManagerService.Converter
 {
     public class ClienteConverter
     {
+        [Obsolete("Não se retorna a entidade, se retorna o DTO. Problema disso, são os relacionamentos no model")]
         public Cliente SqlToCliente(MySqlDataReader mySqlDataReader)
         {
-            if (mySqlDataReader.Read())
-            {
-                return new Cliente() { Id = mySqlDataReader.GetInt32(mySqlDataReader.GetOrdinal("id")) ,
-                                       Nome = mySqlDataReader.GetString(mySqlDataReader.GetOrdinal("nome")),
-                                       Telefone = mySqlDataReader.GetString(mySqlDataReader.GetOrdinal("telefone")),
-                                       Email = mySqlDataReader.GetString(mySqlDataReader.GetOrdinal("email")),
-                };
-                
-            }
+            return new Cliente() { Id = mySqlDataReader.GetInt32(mySqlDataReader.GetOrdinal("id")) ,
+                                    Nome = mySqlDataReader.GetString(mySqlDataReader.GetOrdinal("nome")),
+                                    Telefone = mySqlDataReader.GetString(mySqlDataReader.GetOrdinal("telefone")),
+                                    Email = mySqlDataReader.GetString(mySqlDataReader.GetOrdinal("email")),
+            };
 
-            return null;
+        }
+
+        public ClienteDto SqlToClienteDto(MySqlDataReader mySqlDataReader)
+        {
+            return new ClienteDto()
+            {
+                Id = mySqlDataReader.GetInt32(mySqlDataReader.GetOrdinal("id")),
+                Nome = mySqlDataReader.GetString(mySqlDataReader.GetOrdinal("nome")),
+                Telefone = mySqlDataReader.GetString(mySqlDataReader.GetOrdinal("telefone")),
+                Email = mySqlDataReader.GetString(mySqlDataReader.GetOrdinal("email")),
+            };
         }
 
         public ClienteGetAllDto SqlToClienteGetAllDto(MySqlDataReader mySqlDataReader)
         {
-            if (mySqlDataReader.Read())
-            {
-                return new ClienteGetAllDto()
-                {                    
-                    Nome = mySqlDataReader.GetString(mySqlDataReader.GetOrdinal("nome")),
-                    Telefone = mySqlDataReader.GetString(mySqlDataReader.GetOrdinal("telefone")),                    
-                };
+            return new ClienteGetAllDto()
+            {                    
+                Nome = mySqlDataReader.GetString(mySqlDataReader.GetOrdinal("nome")),
+                Telefone = mySqlDataReader.GetString(mySqlDataReader.GetOrdinal("telefone")),                    
+            };
 
-            }
-            return null;
         }
     }
 }

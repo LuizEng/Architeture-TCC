@@ -35,5 +35,13 @@ namespace ManagerService.View
         {
             Application.Exit();
         }
+
+        private void clientesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            CadastroCliente_Form cadastroCliente_Form  = new CadastroCliente_Form();
+            cadastroCliente_Form.ShowDialog();
+            this.Show();
+        }
     }
 }
