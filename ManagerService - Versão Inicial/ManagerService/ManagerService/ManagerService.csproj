@@ -113,9 +113,11 @@
     <Compile Include="Converter\PagamentoConverter.cs" />
     <Compile Include="Converter\ServicoConverter.cs" />
     <Compile Include="Model\Dto\AgendaGetAllDto.cs" />
+    <Compile Include="Model\Dto\AgendaPostDto.cs" />
     <Compile Include="Model\Dto\ClienteDto.cs" />
     <Compile Include="Model\Dto\ClienteGetAllDto.cs" />
     <Compile Include="Model\Dto\ClientePostDto.cs" />
+    <Compile Include="Model\Dto\AgendaServicoDto.cs" />
     <Compile Include="Model\Dto\ServicoDto.cs" />
     <Compile Include="Model\Dto\ServicoPostDto.cs" />
     <Compile Include="Model\Entity\Agenda.cs" />
@@ -137,6 +139,12 @@
     <Compile Include="Component\SqlController.cs" />
     <Compile Include="Service\PagamentoService.cs" />
     <Compile Include="Service\ServicoService.cs" />
+    <Compile Include="View\Agendamento_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Agendamento_Form.Designer.cs">
+      <DependentUpon>Agendamento_Form.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\CadastroCliente_Form.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -170,6 +178,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="View\Agendamento_Form.resx">
+      <DependentUpon>Agendamento_Form.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\CadastroCliente_Form.resx">
       <DependentUpon>CadastroCliente_Form.cs</DependentUpon>
     </EmbeddedResource>

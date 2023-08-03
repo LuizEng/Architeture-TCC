@@ -9,7 +9,8 @@ using System.Threading.Tasks;
 namespace Manager01
 {
     public class SqlController
-    {        
+    {
+        public int LastInsertId = 0;
         private MySqlConnection GetConnection()
         {
             MySQLConnectionManager connection = new MySQLConnectionManager();
@@ -33,6 +34,7 @@ namespace Manager01
         {
             MySqlCommand mySqlCommand = new MySqlCommand(command, GetConnection());
             mySqlCommand.ExecuteNonQuery();
+            this.LastInsertId = Convert.ToInt32(mySqlCommand.ExecuteScalar());
         }
 
         public void Insert<T>(T obj, string tableName)
@@ -49,7 +51,7 @@ namespace Manager01
             }
 
             string insertStatement = $"INSERT INTO {tableName} ({string.Join(", ", propertyNames)}) VALUES ({string.Join(", ", propertyValues)})";
-            ExecSql(insertStatement);
+            ExecSql(insertStatement);            
         }
 
         public void Update<T>(T obj, string tableName, string idPropertyName)

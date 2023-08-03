@@ -19,6 +19,8 @@ namespace ManagerService.Controller
 
         public Cliente RetornarClientePorId(int id) => _clienteService.GetById(id);
 
+        public ClienteDto RetornarClientePorIdDto(int id) => _clienteService.GetByIdDto(id);
+
         public bool IsClienteExiste(int id) => _clienteService.GetById(id) != null;
 
         public List<ClienteDto> RetornarTodosClienteDto() => _clienteService.GetClientesDto();

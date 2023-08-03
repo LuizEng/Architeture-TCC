@@ -1,4 +1,5 @@
 ﻿using Manager01;
+using ManagerService.Controller;
 using ManagerService.Converter;
 using ManagerService.Model.Dto;
 using ManagerService.Model.Entity;
@@ -20,8 +21,8 @@ namespace ManagerService.Repository
             _converter = new AgendaConverter();            
         }
 
-        public Agenda GetById(int id) => _converter.SqlToAgenda(GetDataReader("select * from agenda"));
-
+        public Agenda GetById(int id) => _converter.SqlToAgenda(GetDataReader("select * from agenda where id = "+ id.ToString()));
+        
         public List<AgendaGetAllDto> GetBetweenDate(DateTime dataInicio, DateTime datafim)
         {
             MySqlDataReader reader = GetDataReader("select * from agenda where data between " + dataInicio.ToShortDateString() + " and " + datafim.ToShortDateString());
@@ -34,5 +35,16 @@ namespace ManagerService.Repository
 
             return list;
         }
+
+        public void IncluirAgenda(AgendaPostDto dto, List<int> servicos)
+        {
+            Insert<AgendaPostDto>(dto, "agenda");
+            if (LastInsertId > 0)
+            {
+                ServicoController servicoController = new ServicoController();
+                servicoController.SetServicosAgenda(servicos, LastInsertId);
+            }
+        }
+
     }
 }

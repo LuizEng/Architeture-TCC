@@ -25,5 +25,7 @@ namespace ManagerService.Service
         public void AtualizarServico(ServicoDto dto) => _repository.Update(dto);
 
         public void RemoverServico(int id) => _repository.Delete(id);
+
+        public void SetServicosAgenda(List<int> servicos, int idAgenda) => _repository.SetServicosAgenda(servicos, idAgenda);
     }
 }

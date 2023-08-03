@@ -32,6 +32,8 @@ namespace ManagerService.Repository
 
         public Cliente GetById(int id) => _converter.SqlToCliente(GetDataReader("select * from cliente where id = " + id.ToString()));
 
+        public ClienteDto GetByIdDto(int id) => _converter.SqlToClienteDto(GetDataReader("select * from cliente where id = " + id.ToString()));
+
         public List<ClienteDto> GetAllClienteDto()
         {
             MySqlDataReader sqlDataReader = GetDataReader("select * from cliente");

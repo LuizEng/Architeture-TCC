@@ -29,5 +29,7 @@ namespace ManagerService.Controller
         }
 
         public void ExcluirServico(int id) => _service.RemoverServico(id);
+
+        public void SetServicosAgenda(List<int> servicos, int idAgenda) => _service.SetServicosAgenda(servicos, idAgenda);
     }
 }

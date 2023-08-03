@@ -19,6 +19,8 @@ namespace ManagerService.Service
 
         public Cliente GetById(int id) => _clienteRepository.GetById(id);
 
+        public ClienteDto GetByIdDto(int id) => _clienteRepository.GetByIdDto(id);
+
         public List<ClienteDto> GetClientesDto() => _clienteRepository.GetAllClienteDto();
 
         public void InserirCliente(ClientePostDto dto) => _clienteRepository.Insert(dto);
