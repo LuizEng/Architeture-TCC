@@ -32,12 +32,9 @@ namespace ManagerService.View
             clienteController = new ClienteController();
             GetDadosCliente();
             grdDados.AutoGenerateColumns = true;            
-        }        
-
-        private void btnVoltar_Click(object sender, EventArgs e)
-        {
-            this.Close();
         }
+
+        private void btnVoltar_Click(object sender, EventArgs e) => this.Close();
 
         private void GetDadosCliente()
         {
@@ -139,6 +136,14 @@ namespace ManagerService.View
                 txtNome.Text = selectedRow.Cells["Nome"].Value.ToString(); ;
                 txtTelefone.Text = selectedRow.Cells["Telefone"].Value.ToString(); ;
                 txtEmail.Text = selectedRow.Cells["Email"].Value.ToString(); ;
+            }
+        }
+
+        private void txtTelefone_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
             }
         }
     }

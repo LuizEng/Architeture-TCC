@@ -273,6 +273,7 @@
             this.serviçosToolStripMenuItem.Name = "serviçosToolStripMenuItem";
             this.serviçosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.serviçosToolStripMenuItem.Text = "Serviços";
+            this.serviçosToolStripMenuItem.Click += new System.EventHandler(this.serviçosToolStripMenuItem_Click);
             // 
             // relatóriosToolStripMenuItem
             // 
@@ -292,13 +293,13 @@
             // agendarServiçoToolStripMenuItem
             // 
             this.agendarServiçoToolStripMenuItem.Name = "agendarServiçoToolStripMenuItem";
-            this.agendarServiçoToolStripMenuItem.Size = new System.Drawing.Size(178, 22);
+            this.agendarServiçoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.agendarServiçoToolStripMenuItem.Text = "Agendar Serviço";
             // 
             // realizarPagamentoToolStripMenuItem
             // 
             this.realizarPagamentoToolStripMenuItem.Name = "realizarPagamentoToolStripMenuItem";
-            this.realizarPagamentoToolStripMenuItem.Size = new System.Drawing.Size(178, 22);
+            this.realizarPagamentoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.realizarPagamentoToolStripMenuItem.Text = "Realizar Pagamento";
             // 
             // Home_Form
