@@ -1,4 +1,5 @@
-﻿using ManagerService.Model.Entity;
+﻿using ManagerService.Model.Dto;
+using ManagerService.Model.Entity;
 using ManagerService.Service;
 using System;
 using System.Collections.Generic;
@@ -11,14 +12,22 @@ namespace ManagerService.Controller
     public class ServicoController
     {
         private ServicoService _service;
-        public ServicoController() 
-        {
-            _service = new ServicoService();
+        public ServicoController() => _service = new ServicoService();
+
+        public List<Servico> RetornarServicos() => _service.GetServicos();
+
+        public List<ServicoDto> RetornarServicosDto() => _service.GetAllServicoDto();
+
+        public void IncluirServico(string descricao, float valor, float custo)
+        {            
+            _service.IncluirServico(new ServicoPostDto() { Descricao = descricao, Valor = valor, CustoMedio = custo });
         }
 
-        public List<Servico> RetornarServicos()
+        public void AtualizarServico(int id, string descricao, float valor, float custo)
         {
-            return _service.GetServicos();
+            _service.AtualizarServico(new ServicoDto() { Id = id, Descricao = descricao, Valor = valor, CustoMedio = custo }); 
         }
+
+        public void ExcluirServico(int id) => _service.RemoverServico(id);
     }
 }

@@ -41,6 +41,16 @@ namespace ManagerService.View
             this.Hide();
             CadastroCliente_Form cadastroCliente_Form  = new CadastroCliente_Form();
             cadastroCliente_Form.ShowDialog();
+            CarregarDados();
+            this.Show();
+        }
+
+        private void serviçosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            CadastroServico_Form cadastroServico_Form = new CadastroServico_Form();
+            cadastroServico_Form.ShowDialog();
+            CarregarDados();
             this.Show();
         }
     }

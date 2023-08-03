@@ -45,7 +45,7 @@ namespace Manager01
             foreach (var property in properties)
             {
                 propertyNames.Add(property.Name);
-                propertyValues.Add($"'{property.GetValue(obj)}'");
+                propertyValues.Add($"'{property.GetValue(obj).ToString().Replace(",", ".")}'");
             }
 
             string insertStatement = $"INSERT INTO {tableName} ({string.Join(", ", propertyNames)}) VALUES ({string.Join(", ", propertyValues)})";
