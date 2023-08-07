@@ -22,5 +22,7 @@ namespace ManagerService.Model.Entity
         public DateTime Data { get; set; }
 
         public double Hora { get; set; }
+
+        public int Status { get; set; }
     }
 }

@@ -9,7 +9,8 @@ using System.Threading.Tasks;
 namespace Manager01
 {
     public class SqlController
-    {        
+    {
+        public int LastInsertId = 0;
         private MySqlConnection GetConnection()
         {
             MySQLConnectionManager connection = new MySQLConnectionManager();
@@ -31,8 +32,8 @@ namespace Manager01
 
         private void ExecSql(string command)
         {
-            MySqlCommand mySqlCommand = new MySqlCommand(command, GetConnection());
-            mySqlCommand.ExecuteNonQuery();
+            MySqlCommand mySqlCommand = new MySqlCommand(command + "; SELECT LAST_INSERT_ID();", GetConnection());            
+            this.LastInsertId = Convert.ToInt32(mySqlCommand.ExecuteScalar());
         }
 
         public void Insert<T>(T obj, string tableName)
@@ -40,16 +41,23 @@ namespace Manager01
             Type type = typeof(T);
             var properties = type.GetProperties(BindingFlags.Public | BindingFlags.Instance);
             var propertyNames = new List<string>();
-            var propertyValues = new List<string>();
+            var propertyValues = new List<string>();             
 
             foreach (var property in properties)
             {
                 propertyNames.Add(property.Name);
-                propertyValues.Add($"'{property.GetValue(obj).ToString().Replace(",", ".")}'");
+
+                if (property.PropertyType == typeof(DateTime))
+                {                    
+                    propertyValues.Add($"'{converterData((DateTime)property.GetValue(obj))}'");
+                }
+
+                else
+                    propertyValues.Add($"'{property.GetValue(obj).ToString().Replace(",", ".")}'");
             }
 
             string insertStatement = $"INSERT INTO {tableName} ({string.Join(", ", propertyNames)}) VALUES ({string.Join(", ", propertyValues)})";
-            ExecSql(insertStatement);
+            ExecSql(insertStatement);            
         }
 
         public void Update<T>(T obj, string tableName, string idPropertyName)
@@ -75,6 +83,11 @@ namespace Manager01
         public void Delete(string tabela, string campoChave, int id)
         {
             ExecSql("delete from " + tabela + " where " + campoChave + " = " + id.ToString());
+        }
+
+        public string converterData(DateTime data)
+        {
+            return data.ToString("yyyy-MM-dd");
         }
     }
 }

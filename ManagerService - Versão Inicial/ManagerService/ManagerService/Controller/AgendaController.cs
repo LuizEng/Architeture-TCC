@@ -33,5 +33,10 @@ namespace ManagerService.Controller
 
             return _service.GetAgendaHoje(dataAtual);
         }
+
+        public void IncluirAgenda(int cliente, DateTime data, float hora, List<int> servicos)
+        {           
+            _service.IncluirAgenda(new AgendaPostDto() { Fk_cliente = cliente, Data = data, Hora = hora }, servicos);
+        }
     }
 }

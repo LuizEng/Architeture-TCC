@@ -19,6 +19,8 @@ namespace ManagerService.Service
 
         public Cliente GetById(int id) => _clienteRepository.GetById(id);
 
+        public ClienteDto GetByIdDto(int id) => _clienteRepository.GetByIdDto(id);
+
         public List<ClienteDto> GetClientesDto() => _clienteRepository.GetAllClienteDto();
 
         public void InserirCliente(ClientePostDto dto) => _clienteRepository.Insert(dto);
@@ -26,5 +28,7 @@ namespace ManagerService.Service
         public void AtualizarCliente(ClienteDto dto) => _clienteRepository.Update(dto);
 
         public void RemoverCliente(int id) => _clienteRepository.Delete(id);
+
+        public ClienteDto GetByNome(string nome) => _clienteRepository.GetByNome(nome);
     }
 }

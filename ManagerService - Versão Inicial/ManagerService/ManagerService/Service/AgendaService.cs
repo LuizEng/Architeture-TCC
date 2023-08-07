@@ -20,5 +20,7 @@ namespace ManagerService.Service
         public List<AgendaGetAllDto> GetAgendaSemana(DateTime dataInicio, DateTime dataFim) => _repository.GetBetweenDate(dataInicio, dataFim);
 
         public List<AgendaGetAllDto> GetAgendaHoje(DateTime dataAtual) => _repository.GetBetweenDate(dataAtual, dataAtual);
+
+        public void IncluirAgenda(AgendaPostDto dto, List<int> servicos) => _repository.IncluirAgenda(dto, servicos);
     }
 }
