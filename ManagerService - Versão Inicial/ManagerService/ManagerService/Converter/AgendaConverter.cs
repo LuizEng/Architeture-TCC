@@ -44,7 +44,7 @@ namespace ManagerService.Converter
             ServicoRepository servicoRepository = new ServicoRepository();
             List<Servico> servicos = servicoRepository.GetServicosAgenda(reader.GetInt32(reader.GetOrdinal("id")));
 
-            servicos.ForEach(s => dto.Servicos += ", " + s.Descricao);
+            dto.Servicos = string.Join(", ", servicos.Select(s => s.Descricao));
 
             return dto;
         }

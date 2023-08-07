@@ -25,7 +25,7 @@ namespace ManagerService.Repository
         
         public List<AgendaGetAllDto> GetBetweenDate(DateTime dataInicio, DateTime datafim)
         {
-            MySqlDataReader reader = GetDataReader("select * from agenda where data between " + dataInicio.ToShortDateString() + " and " + datafim.ToShortDateString());
+            MySqlDataReader reader = GetDataReader("select * from agenda where data between '" + converterData(dataInicio) + "' and '" + converterData(datafim) + "'");
 
             var list = new List<AgendaGetAllDto>();
             while (reader.Read())

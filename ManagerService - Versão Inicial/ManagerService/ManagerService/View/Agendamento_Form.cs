@@ -46,14 +46,15 @@ namespace ManagerService.View
             }
 
             cmbCliente.DataSource = clientes;
-            cmbCliente.Enabled = this.idCliente > 0;
+            cmbCliente.DisplayMember = "Nome";
+            cmbCliente.Enabled = this.idCliente == 0;
         }
 
         private void AlimentarServicos()
         {
             ServicoController servicoController = new ServicoController();
             servicos = servicoController.RetornarServicosDto();
-            clbServicos.DataSource = servicos;
+            servicos.ForEach(x => clbServicos.Items.Add(x.Descricao));
         }
 
         private void btnVoltar_Click(object sender, EventArgs e)
@@ -64,11 +65,10 @@ namespace ManagerService.View
         }
 
         private void btnAgendar_Click(object sender, EventArgs e)
-        {
+        {            
             DialogResult result = MessageBox.Show("Deseja realizar o agendamento?", "Confirmação", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (result == DialogResult.Yes)
-            {
-                AgendaController agendaController = new AgendaController();
+            {                
                 ClienteDto cliente = clientes.Find(p => p.Nome == cmbCliente.Text);
                 if (cliente != null)
                 {
@@ -77,14 +77,18 @@ namespace ManagerService.View
                     {
                         if (clbServicos.GetItemChecked(i))
                         {
-                            Servico servico = (Servico)clbServicos.Items[i];
+                            ServicoDto servico = this.servicos.Find(s => s.Descricao == clbServicos.Items[i].ToString());
                             servicos.Add(servico.Id);
                         }
                     }
 
                     if (servicos.Count > 0)
                     {
-                        agendaController.IncluirAgenda(cliente.Id, dtpData.Value, float.Parse(dtpHora.Value.ToString()), servicos);                        
+                        AgendaController agendaController = new AgendaController();
+                        float hora = float.Parse(txtHora.Text.Replace(":", ","));
+                        agendaController.IncluirAgenda(cliente.Id, mcData.SelectionRange.Start, hora, servicos);
+                        MessageBox.Show("Agenda marcada com sucesso!");
+                        this.Hide();
                     }
                     else
                         MessageBox.Show("Nenhum serviço foi selecionado!");
@@ -93,5 +97,32 @@ namespace ManagerService.View
                     MessageBox.Show("Nenhum cliente foi selecionado!");
             }
         }
+
+        private string RemoveCaracteresInvalidos(string input)
+        {
+            string result = "";
+            int maxLength = 5;
+
+            foreach (char c in input)
+            {
+                if (char.IsDigit(c) || c == ':')
+                {
+                    result += c;
+                }
+            }
+            if (result.Length > maxLength)
+            {
+                result = result.Substring(0, maxLength);
+            }
+
+            return result;
+        }
+
+        private void txtHora_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
+
+
 }

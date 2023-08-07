@@ -15,6 +15,7 @@ namespace ManagerService.Converter
         [Obsolete("Não se retorna a entidade, se retorna o DTO. Problema disso, são os relacionamentos no model")]
         public Cliente SqlToCliente(MySqlDataReader mySqlDataReader)
         {
+            mySqlDataReader.Read();
             return new Cliente() { Id = mySqlDataReader.GetInt32(mySqlDataReader.GetOrdinal("id")) ,
                                     Nome = mySqlDataReader.GetString(mySqlDataReader.GetOrdinal("nome")),
                                     Telefone = mySqlDataReader.GetString(mySqlDataReader.GetOrdinal("telefone")),
@@ -24,7 +25,7 @@ namespace ManagerService.Converter
         }
 
         public ClienteDto SqlToClienteDto(MySqlDataReader mySqlDataReader)
-        {
+        {            
             return new ClienteDto()
             {
                 Id = mySqlDataReader.GetInt32(mySqlDataReader.GetOrdinal("id")),

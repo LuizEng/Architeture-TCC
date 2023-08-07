@@ -1,4 +1,5 @@
 ﻿using ManagerService.Controller;
+using ManagerService.Model.Dto;
 using ManagerService.Service;
 using System;
 using System.Collections.Generic;
@@ -52,6 +53,38 @@ namespace ManagerService.View
             cadastroServico_Form.ShowDialog();
             CarregarDados();
             this.Show();
+        }
+
+        private void agendarServiçoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Agendamento_Form agendamento = new Agendamento_Form(0);
+            agendamento.ShowDialog();
+        }
+
+        private void grdClientes_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Right && grdClientes.Rows.Count > 0)
+            {
+                var hitTestInfo = grdClientes.HitTest(e.X, e.Y);
+                if (hitTestInfo.RowIndex >= 0)
+                {
+                    grdClientes.ClearSelection();
+                    grdClientes.Rows[hitTestInfo.RowIndex].Selected = true;
+                    Rectangle cellRectangle = grdClientes.GetCellDisplayRectangle(hitTestInfo.ColumnIndex, hitTestInfo.RowIndex, true);
+
+                    mnuAgendar.Show(grdClientes, cellRectangle.Left + e.X, cellRectangle.Top + e.Y);                 
+                }
+                
+            }
+        }
+
+        private void agendarServiçoToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            ClienteController clienteController = new ClienteController();
+            ClienteDto cliente = clienteController.GetByNome(grdClientes.SelectedRows[0].Cells[0].Value.ToString());
+
+            Agendamento_Form agendamento = new Agendamento_Form(cliente.Id);
+            agendamento.ShowDialog();
         }
     }
 }

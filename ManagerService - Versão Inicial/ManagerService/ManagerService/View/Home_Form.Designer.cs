@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel10 = new System.Windows.Forms.Panel();
@@ -53,6 +54,8 @@
             this.agendaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.agendarServiçoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.realizarPagamentoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuAgendar = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.agendarServiçoToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel10.SuspendLayout();
@@ -66,6 +69,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.grdDadosSemana)).BeginInit();
             this.panel6.SuspendLayout();
             this.mnuHome.SuspendLayout();
+            this.mnuAgendar.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -113,6 +117,7 @@
             this.grdClientes.ReadOnly = true;
             this.grdClientes.Size = new System.Drawing.Size(566, 567);
             this.grdClientes.TabIndex = 2;
+            this.grdClientes.MouseClick += new System.Windows.Forms.MouseEventHandler(this.grdClientes_MouseClick);
             // 
             // panel11
             // 
@@ -264,14 +269,14 @@
             // clientesToolStripMenuItem
             // 
             this.clientesToolStripMenuItem.Name = "clientesToolStripMenuItem";
-            this.clientesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.clientesToolStripMenuItem.Size = new System.Drawing.Size(117, 22);
             this.clientesToolStripMenuItem.Text = "Clientes";
             this.clientesToolStripMenuItem.Click += new System.EventHandler(this.clientesToolStripMenuItem_Click);
             // 
             // serviçosToolStripMenuItem
             // 
             this.serviçosToolStripMenuItem.Name = "serviçosToolStripMenuItem";
-            this.serviçosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.serviçosToolStripMenuItem.Size = new System.Drawing.Size(117, 22);
             this.serviçosToolStripMenuItem.Text = "Serviços";
             this.serviçosToolStripMenuItem.Click += new System.EventHandler(this.serviçosToolStripMenuItem_Click);
             // 
@@ -295,12 +300,27 @@
             this.agendarServiçoToolStripMenuItem.Name = "agendarServiçoToolStripMenuItem";
             this.agendarServiçoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.agendarServiçoToolStripMenuItem.Text = "Agendar Serviço";
+            this.agendarServiçoToolStripMenuItem.Click += new System.EventHandler(this.agendarServiçoToolStripMenuItem_Click);
             // 
             // realizarPagamentoToolStripMenuItem
             // 
             this.realizarPagamentoToolStripMenuItem.Name = "realizarPagamentoToolStripMenuItem";
             this.realizarPagamentoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.realizarPagamentoToolStripMenuItem.Text = "Realizar Pagamento";
+            // 
+            // mnuAgendar
+            // 
+            this.mnuAgendar.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.agendarServiçoToolStripMenuItem1});
+            this.mnuAgendar.Name = "mnuAgendar";
+            this.mnuAgendar.Size = new System.Drawing.Size(181, 48);
+            // 
+            // agendarServiçoToolStripMenuItem1
+            // 
+            this.agendarServiçoToolStripMenuItem1.Name = "agendarServiçoToolStripMenuItem1";
+            this.agendarServiçoToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.agendarServiçoToolStripMenuItem1.Text = "Agendar Serviço";
+            this.agendarServiçoToolStripMenuItem1.Click += new System.EventHandler(this.agendarServiçoToolStripMenuItem1_Click);
             // 
             // Home_Form
             // 
@@ -331,6 +351,7 @@
             this.panel6.PerformLayout();
             this.mnuHome.ResumeLayout(false);
             this.mnuHome.PerformLayout();
+            this.mnuAgendar.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -362,5 +383,7 @@
         private System.Windows.Forms.Panel panel11;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.DataGridView grdClientes;
+        private System.Windows.Forms.ContextMenuStrip mnuAgendar;
+        private System.Windows.Forms.ToolStripMenuItem agendarServiçoToolStripMenuItem1;
     }
 }

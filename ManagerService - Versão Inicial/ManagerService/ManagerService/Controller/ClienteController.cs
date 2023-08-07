@@ -30,5 +30,7 @@ namespace ManagerService.Controller
         public void AtualizarCliente(int id, string nome, string telefone, string email) => _clienteService.AtualizarCliente(new ClienteDto() { Id = id, Nome = nome, Telefone = telefone, Email = email });
 
         public void RemoverCliente(int id) => _clienteService.RemoverCliente(id);
+
+        public ClienteDto GetByNome(string nome) => _clienteService.GetByNome(nome);
     }
 }
