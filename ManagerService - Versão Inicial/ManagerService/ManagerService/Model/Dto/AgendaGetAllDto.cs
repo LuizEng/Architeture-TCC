@@ -8,6 +8,7 @@ namespace ManagerService.Model.Dto
 {
     public class AgendaGetAllDto
     {
+        public int Id { get; set; }
         public String Cliente { get; set; }
 
         public String Servicos { get; set; }

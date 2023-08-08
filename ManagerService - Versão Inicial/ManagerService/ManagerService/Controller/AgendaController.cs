@@ -38,5 +38,7 @@ namespace ManagerService.Controller
         {           
             _service.IncluirAgenda(new AgendaPostDto() { Fk_cliente = cliente, Data = data, Hora = hora }, servicos);
         }
+
+        public float GetValorServicos(int idAgenda) => _service.GetValorServicos(idAgenda);
     }
 }

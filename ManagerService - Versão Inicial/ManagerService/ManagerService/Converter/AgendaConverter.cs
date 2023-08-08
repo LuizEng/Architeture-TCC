@@ -33,7 +33,8 @@ namespace ManagerService.Converter
 
         public AgendaGetAllDto SqlToAgendaGetAllDto(MySqlDataReader reader)
         {
-            AgendaGetAllDto dto = new AgendaGetAllDto() { Data = reader.GetDateTime(reader.GetOrdinal("data")),
+            AgendaGetAllDto dto = new AgendaGetAllDto() { Id = reader.GetInt32(reader.GetOrdinal("id")),
+                                                          Data = reader.GetDateTime(reader.GetOrdinal("data")),
                                                           Hora = reader.GetFloat(reader.GetOrdinal("hora"))};
 
             ClienteRepository clienteRepository = new ClienteRepository();
