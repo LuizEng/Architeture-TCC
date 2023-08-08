@@ -59,6 +59,7 @@ namespace ManagerService.View
         {
             Agendamento_Form agendamento = new Agendamento_Form(0);
             agendamento.ShowDialog();
+            CarregarDados();
         }
 
         private void grdClientes_MouseClick(object sender, MouseEventArgs e)
@@ -85,6 +86,29 @@ namespace ManagerService.View
 
             Agendamento_Form agendamento = new Agendamento_Form(cliente.Id);
             agendamento.ShowDialog();
+        }
+
+        private void grdDadosHoje_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Right && grdDadosHoje.Rows.Count > 0)
+            {
+                var hitTestInfo = grdDadosHoje.HitTest(e.X, e.Y);
+                if (hitTestInfo.RowIndex >= 0)
+                {
+                    grdDadosHoje.ClearSelection();
+                    grdDadosHoje.Rows[hitTestInfo.RowIndex].Selected = true;
+                    Rectangle cellRectangle = grdDadosHoje.GetCellDisplayRectangle(hitTestInfo.ColumnIndex, hitTestInfo.RowIndex, true);
+
+                    mnuAgenda.Show(grdDadosHoje, cellRectangle.Left + e.X, cellRectangle.Top + e.Y);
+                }
+
+            }
+        }
+
+        private void realizarPagamentoToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            Pagamento_Form pagamento_Form = new Pagamento_Form((int)grdDadosHoje.SelectedRows[0].Cells[0].Value);
+            pagamento_Form.ShowDialog();
         }
     }
 }

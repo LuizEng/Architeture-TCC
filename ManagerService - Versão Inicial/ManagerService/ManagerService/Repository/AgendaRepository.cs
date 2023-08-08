@@ -6,7 +6,9 @@ using ManagerService.Model.Entity;
 using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
+using System.Runtime.InteropServices.ComTypes;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -44,6 +46,13 @@ namespace ManagerService.Repository
                 ServicoController servicoController = new ServicoController();
                 servicoController.SetServicosAgenda(servicos, LastInsertId);
             }
+        }
+
+        public float GetValorServicos(int idAgenda)
+        {            
+            MySqlDataReader reader = GetDataReader("select sum(valor) from agenda_servico inner join servico on servico.id = fk_servico where fk_agenda = " + idAgenda.ToString());
+            reader.Read();
+            return float.Parse(reader.GetString(0).Replace(",", "."), CultureInfo.InvariantCulture);
         }
 
     }

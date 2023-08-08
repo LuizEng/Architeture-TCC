@@ -15,13 +15,9 @@ namespace ManagerService.Converter
         public Pagamento SqlToPagamento(MySqlDataReader reader)
         {
             Pagamento pagamento = new Pagamento() { Id = reader.GetInt32(reader.GetOrdinal("id")),
-                                                    ValorPago = reader.GetFloat(reader.GetOrdinal("valorPago")),                                                    
+                                                    ValorPago = reader.GetFloat(reader.GetOrdinal("valorPago")),
+                                                    TipoPagamento = reader.GetInt32(reader.GetOrdinal("tipoPagamento"))
             };
-
-            if (Enum.TryParse<TipoPagamento>(reader.GetString(reader.GetOrdinal("tipoPagamento")), out TipoPagamento tipoPagamento))
-            {
-                pagamento.TipoPagamento = tipoPagamento;
-            }     
             
             AgendaRepository agendaRepository = new AgendaRepository();
 

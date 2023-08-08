@@ -56,6 +56,8 @@
             this.realizarPagamentoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuAgendar = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.agendarServiçoToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuAgenda = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.realizarPagamentoToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel10.SuspendLayout();
@@ -70,6 +72,7 @@
             this.panel6.SuspendLayout();
             this.mnuHome.SuspendLayout();
             this.mnuAgendar.SuspendLayout();
+            this.mnuAgenda.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -170,6 +173,7 @@
             this.grdDadosHoje.ReadOnly = true;
             this.grdDadosHoje.Size = new System.Drawing.Size(542, 283);
             this.grdDadosHoje.TabIndex = 0;
+            this.grdDadosHoje.MouseClick += new System.Windows.Forms.MouseEventHandler(this.grdDadosHoje_MouseClick);
             // 
             // panel8
             // 
@@ -313,14 +317,28 @@
             this.mnuAgendar.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.agendarServiçoToolStripMenuItem1});
             this.mnuAgendar.Name = "mnuAgendar";
-            this.mnuAgendar.Size = new System.Drawing.Size(181, 48);
+            this.mnuAgendar.Size = new System.Drawing.Size(161, 26);
             // 
             // agendarServiçoToolStripMenuItem1
             // 
             this.agendarServiçoToolStripMenuItem1.Name = "agendarServiçoToolStripMenuItem1";
-            this.agendarServiçoToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.agendarServiçoToolStripMenuItem1.Size = new System.Drawing.Size(160, 22);
             this.agendarServiçoToolStripMenuItem1.Text = "Agendar Serviço";
             this.agendarServiçoToolStripMenuItem1.Click += new System.EventHandler(this.agendarServiçoToolStripMenuItem1_Click);
+            // 
+            // mnuAgenda
+            // 
+            this.mnuAgenda.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.realizarPagamentoToolStripMenuItem1});
+            this.mnuAgenda.Name = "mnuAgenda";
+            this.mnuAgenda.Size = new System.Drawing.Size(181, 48);
+            // 
+            // realizarPagamentoToolStripMenuItem1
+            // 
+            this.realizarPagamentoToolStripMenuItem1.Name = "realizarPagamentoToolStripMenuItem1";
+            this.realizarPagamentoToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.realizarPagamentoToolStripMenuItem1.Text = "Realizar Pagamento";
+            this.realizarPagamentoToolStripMenuItem1.Click += new System.EventHandler(this.realizarPagamentoToolStripMenuItem1_Click);
             // 
             // Home_Form
             // 
@@ -352,6 +370,7 @@
             this.mnuHome.ResumeLayout(false);
             this.mnuHome.PerformLayout();
             this.mnuAgendar.ResumeLayout(false);
+            this.mnuAgenda.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -385,5 +404,7 @@
         private System.Windows.Forms.DataGridView grdClientes;
         private System.Windows.Forms.ContextMenuStrip mnuAgendar;
         private System.Windows.Forms.ToolStripMenuItem agendarServiçoToolStripMenuItem1;
+        private System.Windows.Forms.ContextMenuStrip mnuAgenda;
+        private System.Windows.Forms.ToolStripMenuItem realizarPagamentoToolStripMenuItem1;
     }
 }

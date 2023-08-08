@@ -3,10 +3,11 @@ package com.manager.pagamento.dto;
 import java.math.BigDecimal;
 
 public class PagamentoPostDto {
+	
 	private int agenda;
 	
 	private int tipoPagamento;
-	
+
 	private BigDecimal valor;
 
 	public int getAgenda() {
