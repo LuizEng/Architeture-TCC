@@ -528,3 +528,11 @@
 /ManagerService - Versão Inicial/ManagerService/packages/System.Memory.4.5.5/lib/netcoreapp2.1/_._
 /ManagerService - Versão Inicial/ManagerService/packages/System.Memory.4.5.5/lib/netstandard1.1/System.Memory.dll
 /ManagerService - Versão Inicial/ManagerService/packages/System.Memory.4.5.5/lib/netstandard1.1/System.Memory.xml
+/ManagerService - Java/API/pagamento/.settings/*.prefs
+/ManagerService - Java/API/pagamento/target/classes/com/manager/pagamento/*.class
+/ManagerService - Java/API/pagamento/target/classes/com/manager/pagamento/controller/*.class
+/ManagerService - Java/API/pagamento/target/classes/com/manager/pagamento/converter/*.class
+/ManagerService - Java/API/pagamento/target/classes/com/manager/pagamento/dto/*.class
+/ManagerService - Java/API/pagamento/target/classes/com/manager/pagamento/entity/*.class
+/ManagerService - Java/API/pagamento/target/classes/com/manager/pagamento/repository/*.class
+/ManagerService - Java/API/pagamento/target/classes/com/manager/pagamento/service/*.class
