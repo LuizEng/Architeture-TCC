@@ -1,0 +1,8 @@
+/.settings/*.prefs
+/target/classes/com/manager/pagamento/*.class
+/target/classes/com/manager/pagamento/controller/*.class
+/target/classes/com/manager/pagamento/converter/*.class
+/target/classes/com/manager/pagamento/dto/*.class
+/target/classes/com/manager/pagamento/entity/*.class
+/target/classes/com/manager/pagamento/repository/*.class
+/target/classes/com/manager/pagamento/service/*.class
