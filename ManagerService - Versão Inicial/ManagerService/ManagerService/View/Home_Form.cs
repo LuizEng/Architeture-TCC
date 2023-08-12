@@ -25,11 +25,14 @@ namespace ManagerService.View
         {
             ClienteController clienteController = new ClienteController();
             grdClientes.DataSource = clienteController.RetornarTodosClientes();
+            grdClientes.Refresh();
 
             AgendaController agendaController = new AgendaController();
             grdDadosHoje.DataSource = agendaController.GetAgendaHoje();
+            grdDadosHoje.Refresh();
 
             grdDadosSemana.DataSource = agendaController.GetAgendaSemana();
+            grdDadosHoje.Refresh();
         }
 
         private void Home_Form_FormClosed(object sender, FormClosedEventArgs e)
@@ -86,6 +89,7 @@ namespace ManagerService.View
 
             Agendamento_Form agendamento = new Agendamento_Form(cliente.Id);
             agendamento.ShowDialog();
+            CarregarDados();
         }
 
         private void grdDadosHoje_MouseClick(object sender, MouseEventArgs e)

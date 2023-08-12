@@ -18,7 +18,7 @@ namespace Manager01
         }
         public MySqlDataReader GetDataReader(string command)
         {
-            MySqlCommand mySqlCommand = new MySqlCommand(command, GetConnection());
+            MySqlCommand mySqlCommand = new MySqlCommand(command, GetConnection());            
             MySqlDataReader retorno = mySqlCommand.ExecuteReader();
             return retorno;
 
@@ -30,7 +30,7 @@ namespace Manager01
             return retorno;
         }
 
-        private void ExecSql(string command)
+        public void ExecSql(string command)
         {
             MySqlCommand mySqlCommand = new MySqlCommand(command + "; SELECT LAST_INSERT_ID();", GetConnection());            
             this.LastInsertId = Convert.ToInt32(mySqlCommand.ExecuteScalar());
