@@ -15,7 +15,7 @@ namespace Manager01
 
         public MySQLConnectionManager()
         {
-            connectionString = $"server=localhost;user=root;password=root;database=managerservice;";
+            connectionString = $"server=127.0.0.1;port=3306;user=root;password=manager;database=managerservice;";
             connection = new MySqlConnection(connectionString);
             OpenConnection();
         }                    
