@@ -23,11 +23,7 @@ public class Usuario {
 	
 	@Column(name ="senha")
 	@NonNull
-	private String senha;
-	
-	@Column(name ="secret_key")
-	@NonNull
-	private String key;		
+	private String senha;	
 		
 	public int getId() {
 		return id;
@@ -47,13 +43,5 @@ public class Usuario {
 
 	public void setSenha(String senha) {
 		this.senha = senha;
-	}
-
-	public String getKey() {
-		return key;
-	}
-
-	public void setKey(String key) {
-		this.key = key;
 	}
 }

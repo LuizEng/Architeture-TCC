@@ -19,8 +19,7 @@ public class UsuarioConverter {
 	public UsuarioGetInternalDto mapEntToGetInternalDto(Usuario ent) {
 		UsuarioGetInternalDto dto = new UsuarioGetInternalDto();
 		dto.setNome(ent.getNome());
-		dto.setSenha(ent.getSenha());
-		dto.setKey(ent.getKey());
+		dto.setSenha(ent.getSenha());		
 		return dto;
 	}
 	
