@@ -1,0 +1,6 @@
+CREATE TABLE aut_usuario (
+  id INT NOT NULL AUTO_INCREMENT,
+  nome VARCHAR(45) NOT NULL,
+  senha VARCHAR(45) NOT NULL,
+  secret_key VARCHAR(45) NOT NULL,
+  PRIMARY KEY (id));
