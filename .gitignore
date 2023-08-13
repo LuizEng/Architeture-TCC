@@ -606,3 +606,33 @@
 /.metadata/.plugins/org.eclipse.ui.workbench/workingsets.xml
 /.metadata/.plugins/org.eclipse.wst.sse.core/task-tags.properties
 /.metadata/*.ini
+/.metadata/.plugins/org.eclipse.core.resources/.history/61/303193a5cd39001e1f05d4dcec626bb8
+/.metadata/.plugins/org.eclipse.core.resources/.history/96/c09094a5cd39001e1f05d4dcec626bb8
+/.metadata/.plugins/org.eclipse.core.resources/.history/c5/901b94a5cd39001e1f05d4dcec626bb8
+/.metadata/.plugins/org.eclipse.core.resources/.history/f0/b08d2eb5cd39001e1f05d4dcec626bb8
+/.metadata/.plugins/org.eclipse.core.resources/.history/ff/90ec0fa4cd39001e1f05d4dcec626bb8
+/.metadata/.plugins/org.eclipse.core.resources/.projects/manager-service-pagamento/.indexes/e4/b9/db/history.index
+/.metadata/.plugins/org.eclipse.ltk.core.refactoring/.refactorings/manager-service-pagamento/2023/8/33/refactorings.history
+/.metadata/.plugins/org.eclipse.ltk.core.refactoring/.refactorings/manager-service-pagamento/2023/8/33/refactorings.index
+/.metadata/.plugins/org.eclipse.ltk.ui.refactoring/dialog_settings.xml
+/.metadata/.plugins/org.eclipse.tm.terminal.view.ui/.executables/data.properties
+/Versão 2.0/manager-service-autenticador/.settings/org.eclipse.jdt.apt.core.prefs
+/Versão 2.0/manager-service-autenticador/.settings/org.eclipse.jdt.core.prefs
+/Versão 2.0/manager-service-autenticador/.settings/org.eclipse.m2e.core.prefs
+/Versão 2.0/manager-service-autenticador/.settings/org.springframework.ide.eclipse.prefs
+/Versão 2.0/manager-service-autenticador/target/classes/META-INF/MANIFEST.MF
+/Versão 2.0/manager-service-autenticador/target/classes/META-INF/maven/manager-service/autenticador/pom.properties
+/Versão 2.0/manager-service-autenticador/target/classes/META-INF/maven/manager-service/autenticador/pom.xml
+/Versão 2.0/manager-service-autenticador/target/classes/application.yml
+/Versão 2.0/manager-service-autenticador/target/classes/com/manager/service/autenticador/AutenticadorApp.class
+/Versão 2.0/manager-service-autenticador/target/classes/com/manager/service/autenticador/controller/AutenticadorController.class
+/Versão 2.0/manager-service-autenticador/target/classes/com/manager/service/autenticador/controller/UsuarioController.class
+/Versão 2.0/manager-service-autenticador/target/classes/com/manager/service/autenticador/converter/UsuarioConverter.class
+/Versão 2.0/manager-service-autenticador/target/classes/com/manager/service/autenticador/dto/UsuarioGetDto.class
+/Versão 2.0/manager-service-autenticador/target/classes/com/manager/service/autenticador/dto/UsuarioGetInternalDto.class
+/Versão 2.0/manager-service-autenticador/target/classes/com/manager/service/autenticador/dto/UsuarioPostDto.class
+/Versão 2.0/manager-service-autenticador/target/classes/com/manager/service/autenticador/repository/UsuarioRepository.class
+/Versão 2.0/manager-service-autenticador/target/classes/com/manager/service/autenticador/service/SecretKeyService.class
+/Versão 2.0/manager-service-autenticador/target/classes/com/manager/service/autenticador/service/UsuarioService.class
+/Versão 2.0/manager-service-autenticador/target/classes/com/manager/service/autenticator/entity/Usuario.class
+/Versão 2.0/manager-service-autenticador/target/classes/db/migration/V20230813083405_createTableUsuario.sql
