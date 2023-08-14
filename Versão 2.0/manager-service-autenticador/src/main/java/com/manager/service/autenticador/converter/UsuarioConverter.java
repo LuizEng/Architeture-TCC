@@ -5,7 +5,7 @@ import org.springframework.stereotype.Component;
 import com.manager.service.autenticador.dto.UsuarioGetDto;
 import com.manager.service.autenticador.dto.UsuarioGetInternalDto;
 import com.manager.service.autenticador.dto.UsuarioPostDto;
-import com.manager.service.autenticator.entity.Usuario;
+import com.manager.service.autenticador.entity.Usuario;
 
 @Component
 public class UsuarioConverter {

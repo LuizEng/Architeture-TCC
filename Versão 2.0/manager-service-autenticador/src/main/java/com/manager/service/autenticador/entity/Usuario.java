@@ -1,4 +1,4 @@
-package com.manager.service.autenticator.entity;
+package com.manager.service.autenticador.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -7,6 +7,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import org.mindrot.jbcrypt.BCrypt;
 import org.springframework.lang.NonNull;
 
 @Entity
@@ -42,6 +43,7 @@ public class Usuario {
 	}
 
 	public void setSenha(String senha) {
-		this.senha = senha;
+		String salt = BCrypt.gensalt();
+		this.senha =  BCrypt.hashpw(senha, salt);
 	}
 }
