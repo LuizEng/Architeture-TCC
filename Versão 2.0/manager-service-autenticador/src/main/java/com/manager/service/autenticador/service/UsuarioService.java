@@ -1,5 +1,8 @@
 package com.manager.service.autenticador.service;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DuplicateKeyException;
 import org.springframework.http.HttpStatus;
@@ -8,8 +11,8 @@ import org.springframework.stereotype.Service;
 
 import com.manager.service.autenticador.converter.UsuarioConverter;
 import com.manager.service.autenticador.dto.UsuarioPostDto;
+import com.manager.service.autenticador.entity.Usuario;
 import com.manager.service.autenticador.repository.UsuarioRepository;
-import com.manager.service.autenticator.entity.Usuario;
 
 @Service
 public class UsuarioService {
@@ -30,11 +33,12 @@ public class UsuarioService {
 		if (usuario != null) {
 			throw new DuplicateKeyException("Usuário já cadastrado");
 		}
-
+			
 		usuario = converter.mapDtoToEnt(dto);
 		try {
-			repository.save(usuario);
+			repository.save(usuario);			
 			// Envio para o Rabbit
+			// dto.getSenha() para manter a retrocompatibilidade
 			return ResponseEntity.status(HttpStatus.CREATED).body("Usuario criado com sucesso.");
 		} catch (Exception e) {
 			return ResponseEntity.badRequest().body(e.getMessage());
