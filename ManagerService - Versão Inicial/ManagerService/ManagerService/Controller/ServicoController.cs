@@ -18,9 +18,9 @@ namespace ManagerService.Controller
 
         public List<ServicoDto> RetornarServicosDto() => _service.GetAllServicoDto();
 
-        public void IncluirServico(string descricao, float valor, float custo)
+        public void IncluirServico(string descricao, float valor, float custo, int idUsuario)
         {            
-            _service.IncluirServico(new ServicoPostDto() { Descricao = descricao, Valor = valor, CustoMedio = custo });
+            _service.IncluirServico(new ServicoPostDto() { Descricao = descricao, Valor = valor, CustoMedio = custo, fk_usuario = idUsuario });
         }
 
         public void AtualizarServico(int id, string descricao, float valor, float custo)

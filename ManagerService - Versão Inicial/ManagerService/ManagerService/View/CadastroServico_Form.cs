@@ -1,5 +1,6 @@
 ﻿using ManagerService.Controller;
 using ManagerService.Model.Dto;
+using ManagerService.Model.Entity;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -16,13 +17,14 @@ namespace ManagerService.View
     public partial class CadastroServico_Form : Form
     {
         private Acao acao;
-
+        private int idUsuarioLogado;
         private ServicoController servicoController;
         private List<ServicoDto> servicos;
-        public CadastroServico_Form()
+        public CadastroServico_Form(int UsarioLogado)
         {
             InitializeComponent();
             this.acao = Acao.AcNavegando;
+            this.idUsuarioLogado = UsarioLogado;
 
             servicoController = new ServicoController();            
             grdDados.AutoGenerateColumns = true;
@@ -111,7 +113,7 @@ namespace ManagerService.View
         {
             if (this.acao == Acao.AcIncluindo)
             {                
-                servicoController.IncluirServico(txtNome.Text, float.Parse(txtValor.Text, CultureInfo.InvariantCulture), float.Parse(txtCustoMedio.Text, CultureInfo.InvariantCulture));
+                servicoController.IncluirServico(txtNome.Text, float.Parse(txtValor.Text, CultureInfo.InvariantCulture), float.Parse(txtCustoMedio.Text, CultureInfo.InvariantCulture), idUsuarioLogado);
             }
             else if (this.acao == Acao.AcAlterando)
             {
