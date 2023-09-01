@@ -1,5 +1,6 @@
 ﻿using ManagerService.Controller;
 using ManagerService.Model.Dto;
+using ManagerService.Model.Entity;
 using ManagerService.Service;
 using System;
 using System.Collections.Generic;
@@ -15,9 +16,12 @@ namespace ManagerService.View
 {
     public partial class Home_Form : Form
     {
-        public Home_Form()
+        private int idUsuarioLogado;
+
+        public Home_Form(int UsarioLogado)
         {
             InitializeComponent();
+            this.idUsuarioLogado = UsarioLogado;
             CarregarDados();
         }
 
@@ -52,7 +56,7 @@ namespace ManagerService.View
         private void serviçosToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Hide();
-            CadastroServico_Form cadastroServico_Form = new CadastroServico_Form();
+            CadastroServico_Form cadastroServico_Form = new CadastroServico_Form(idUsuarioLogado);
             cadastroServico_Form.ShowDialog();
             CarregarDados();
             this.Show();

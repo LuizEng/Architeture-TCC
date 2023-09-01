@@ -22,10 +22,13 @@ namespace ManagerService.View
         private void btnLogin_Click(object sender, EventArgs e)
         {
             LoginController loginController = new LoginController();
-            if (loginController.RealizarLogin(txtLogin.Text, txtSenha.Text))
+
+            Usuario usuario = loginController.RealizarLogin(txtLogin.Text, txtSenha.Text);
+
+            if (usuario != null)
             {
                 this.Hide();
-                Home_Form home_Form = new Home_Form();
+                Home_Form home_Form = new Home_Form(usuario.Id);
                 home_Form.Show();                
             }
             else

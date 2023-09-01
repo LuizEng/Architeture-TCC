@@ -12,5 +12,6 @@ namespace ManagerService.Model.Dto
         public string Descricao { get; set; }
         public float Valor { get; set; }
         public float CustoMedio { get; set; }
+        public string usuario { get; set; }
     }
 }

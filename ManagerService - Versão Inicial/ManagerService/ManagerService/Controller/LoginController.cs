@@ -17,10 +17,9 @@ namespace ManagerService.Controller
             LoginService = new LoginService();
         }    
 
-        public Boolean RealizarLogin(string usuario, string senha)
+        public Usuario RealizarLogin(string usuario, string senha)
         {
-            Usuario user = LoginService.getLogin(usuario, senha);
-            return user != null;
+            return LoginService.getLogin(usuario, senha);
         }
     }
 }
